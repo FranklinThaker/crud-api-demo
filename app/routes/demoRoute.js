@@ -40,8 +40,18 @@ module.exports = function(app) {
     app.post('/create', users.create);
  
     // Retrieve all Users
-    //app.get('/api/users/all', users.findAll);
-	
+    app.get('/findAll', users.findAll);
+    
+    // Retrieve a single data with Id
+    app.get('/find/:FirstName', users.findOne);
+
+    // Delete data with id
+    app.delete('/delete/:Id', users.delete);
+    
+    // Update data with id
+    app.put('/update/:Id', users.update);
+
+
 	app.use("/",router);
  
 	app.use("*", (req,res) => {

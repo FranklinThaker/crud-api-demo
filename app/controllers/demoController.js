@@ -1,10 +1,9 @@
 
 const demoModel = require('../models/demoModel.js');
 
-
-
 // Create and Save a new data
 exports.create = (req, res) => {
+     
     // Validate request
     if(!req.body.firstname) {
         return res.status(400).send({
@@ -12,17 +11,18 @@ exports.create = (req, res) => {
         });
     }
 
-    // Create a data
+    
+        // Create data
     const demo = new demoModel({
         fname: req.body.firstname || "Untitled", 
-        lname: req.body.lastname
+        lname: req.body.lastname || "Untitled"
     });
-
+         
     // Save data in the database
     demo.save()
     .then(data => {
         res.send(data);
-        console.log('saved');
+        console.log('Saved data in database');
     }).catch(err => {
         res.status(500).send({
             message: err.message || "Some error occurred while creating the data."
@@ -34,7 +34,7 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
     demoModel.find()
     .then(demo => {
-        res.send(demo);
+        res.send(demo);        
     }).catch(err => {
         res.status(500).send({
             message: err.message || "Some error occurred while retrieving data."
@@ -42,32 +42,33 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Find a single data with a id
+// Find a single data with firstname
 exports.findOne = (req, res) => {
-    demoModel.findById(req.params.Id)
+    demoModel.findOne({fname : req.params.FirstName})
     .then(demo => {
+
         if(!demo) {
             return res.status(404).send({
-                message: "Data not found with id " + req.params.Id
+                message: "Data not found with FirstName " + req.params.FirstName
             });            
         }
         res.send(demo);
     }).catch(err => {
-        if(err.kind === 'ObjectId') {
+        if(err) {
             return res.status(404).send({
-                message: "data not found with id " + req.params.Id
+                message: "data not found with FirstName " + req.params.FirstName
             });                
         }
         return res.status(500).send({
-            message: "Error retrieving data with id " + req.params.Id
+            message: "Error retrieving data with FirstName " + req.params.FirstName
         });
     });
 };
 
-// Update a data identified by the Id in the request
+// Update data identified by the Id in the request
 exports.update = (req, res) => {
     // Validate Request
-    if(!req.body.fname) {
+    if(!req.body.firstname) {
         return res.status(400).send({
             message: "data content can not be empty"
         });
@@ -75,8 +76,8 @@ exports.update = (req, res) => {
 
     // Find data and update it with the request body
     demoModel.findByIdAndUpdate(req.params.Id, {
-        fname: req.body.fname || "Untitled Update",
-        lname: req.body.lname
+        fname: req.body.firstname || "Untitled Update",
+        lname: req.body.lastname || "Untitled Update"
     }, {new: true})
     .then(demo => {
         if(!demo) {
@@ -86,7 +87,7 @@ exports.update = (req, res) => {
         }
         res.send(demo);
     }).catch(err => {
-        if(err.kind === 'ObjectId') {
+        if(err) {
             return res.status(404).send({
                 message: "data not found with id " + req.params.Id
             });                
@@ -97,7 +98,7 @@ exports.update = (req, res) => {
     });
 };
 
-// Delete a data with the specified Id in the request
+// Delete data with the specified Id in the request
 exports.delete = (req, res) => {
     demoModel.findByIdAndRemove(req.params.Id)
     .then(demo => {

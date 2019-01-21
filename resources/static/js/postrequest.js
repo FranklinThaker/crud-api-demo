@@ -24,9 +24,10 @@ $( document ).ready(function() {
 			data : JSON.stringify(formData),
 			dataType : 'json',
 			success : function(user) {
-				$("#postResultDiv").html("<p>" +
-					"Post Successfully! <br>" +
-					"--> " + user.firstname + " " + user.lastname + "</p>");
+			// 	$("#postResultDiv").html("<p>" +
+			// 		"Post Successfully! <br>" +
+			// 		"--> " + formData.firstname + " " + formData.lastname + "</p>");
+				alert("Data saved successfully");
 			},
 			error : function(e) {
 				alert("Plz enter valid data!")
@@ -35,12 +36,13 @@ $( document ).ready(function() {
 		});
     	
     	// Reset FormData after Posting
-    	resetData();
- 
+    	resetData(); 
     }
     
     function resetData(){
-    	$("#firstname").val("");
-    	$("#lastname").val("");
-    }
+		$("#firstname").val("");
+		$("#lastname").val("");
+		$("postResultDiv").val("");
+		$("getResultDiv").val("");
+	}
 })
