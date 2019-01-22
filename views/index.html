@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <div class="header"><center><h1>DEMO CRUD Application by Franklin Thaker</h1></center></div>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -13,30 +12,52 @@
 </head>
  
 <body> 
-	<div class="sidebar">
-		<ul>
-				<li><a class="active" href="#home">Home</a></li>
-				<li><a href="#news">Add</a></li>
-				<li><a href="#contact">Edit</a></li>
-				<li><a href="#about">Search</a></li>
-				<li><a href="#about">Delete</a></li>
-			</ul>
+	<div class="topnav">
+				<a class="active" href="#home">Home</a>
+				<a href="#">Add</a>
+				<a href="#">Edit</a>
+				<a href="#">Search</a>
+				<a href="#">Delete</a>
 		</div>
 
-<div class="main-content">	
-		<form id="userForm">	  
-		<input type="text" class="form-control" id="firstname" placeholder="Enter FirstName" required/>			
-			<input type="text" class="form-control" id="lastname" placeholder="Enter LastName" required/>		  
-		  <button type="submit" class="btn btn-default">Submit</button>
-		  <button id="findAll" type="button" class="btn btn-default">FindAll</button>
-		</br></br>	 
-			<input type="text" class="form-control" id="fname" placeholder="Enter to find"/>
-		  <button id="find" type="button" class="btn btn-default">Find</button>
-		</form>
-
-<div id="postResultDiv"></div>	<br> 	<div id="getResultDiv">	   </div>	
-
-	</div>
+	<div class="container">
+			<form id="userForm">
+				<div class="row">
+					<div class="col-25">
+						<label for="firstname">First Name</label>
+					</div>
+					<div class="col-75">
+						<input type="text" id="firstname" placeholder="Your name..">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-25">
+						<label for="lastname">Last Name</label>
+					</div>
+					<div class="col-75">
+						<input type="text" id="lastname" placeholder="Your last name..">
+					</div>
+				</div>
+				
+				<div class="row">
+						<div class="col-25">
+							<label for="Search">Enter First Name</label>
+						</div>
+						<div class="col-75">
+							<input type="text" id="fname" placeholder="Your First name..">
+						</div>
+					</div>
+				
+				<div class="row">
+					<input type="submit" value="Submit">
+					<input type="button" value="FindAll" id="findAll">
+					<input type="button" value="Search" id="find">
+					
+					
+				</div>
+				<div id="postResultDiv"></div>	<br> 	<div id="getResultDiv">	   </div>
+			</form>
+		</div>
 
 <div class="footer">
   <p>Developed & Designed By Franklin Thaker</p>
