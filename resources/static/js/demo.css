@@ -1,0 +1,8 @@
+body {
+    background-color: lightblue;
+  }
+  
+  title {
+    border-bottom: 6px solid red;
+    background-color: lightgrey;
+  }
