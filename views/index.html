@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>DEMO CRUD Application by Franklin Thaker</title>
+  <div class="header"><center><h1>DEMO CRUD Application by Franklin Thaker</h1></center></div>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -13,41 +13,35 @@
 </head>
  
 <body> 
-<div class="container"> 
-<div class="col-sm-4">
-	<h3>DEMO CRUD Application by Franklin Thaker</h3>
-	<div>		
-		<form id="userForm">
-		  <div class="form-group">
-			<label for="firstname">FirstName:</label>
-			<input type="text" class="form-control" id="firstname" placeholder="Enter FirstName" required/>
-		  </div>
-		  <div class="form-group">
-			<label for="lastname">LastName:</label>
-			<input type="text" class="form-control" id="lastname" placeholder="Enter LastName" required/>
-		  </div>
+	<div class="sidebar">
+		<ul>
+				<li><a class="active" href="#home">Home</a></li>
+				<li><a href="#news">Add</a></li>
+				<li><a href="#contact">Edit</a></li>
+				<li><a href="#about">Search</a></li>
+				<li><a href="#about">Delete</a></li>
+			</ul>
+		</div>
+
+<div class="main-content">	
+		<form id="userForm">	  
+		<input type="text" class="form-control" id="firstname" placeholder="Enter FirstName" required/>			
+			<input type="text" class="form-control" id="lastname" placeholder="Enter LastName" required/>		  
 		  <button type="submit" class="btn btn-default">Submit</button>
 		  <button id="findAll" type="button" class="btn btn-default">FindAll</button>
-		</br></br>
-		
-		  <label for="search">search by firstname:</label>
+		</br></br>	 
 			<input type="text" class="form-control" id="fname" placeholder="Enter to find"/>
 		  <button id="find" type="button" class="btn btn-default">Find</button>
-
 		</form>
+
+<div id="postResultDiv"></div>	<br> 	<div id="getResultDiv">	   </div>	
+
 	</div>
-	<div id="postResultDiv">
-	</div>
-	<br>
-	<div>
-		
-		<div id="getResultDiv">
-	        <ul class="list-group">
-				<li></li>
-	    	</ul>
-    	</div>
-	</div>
-</div>	
+
+<div class="footer">
+  <p>Developed & Designed By Franklin Thaker</p>
 </div>
+
+
 </body>
 </html>

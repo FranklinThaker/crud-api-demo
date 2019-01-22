@@ -69,11 +69,11 @@ $( document ).ready(function() {
 			url : "/findAll",
 			success: function(result){
 				console.log(result);
-				$('#getResultDiv ul').empty();
+				$('#getResultDiv').empty();
 				
 				result.forEach(element => {
 					var deleteId = element._id;
-					$('#getResultDiv .list-group').append(element.fname + " " + element.lname + '<button value="'+deleteId+'" onclick="deleteByID(this.value)">delete</button><br>');		
+					$('#getResultDiv').append(element.fname + " " + element.lname + '<button value="'+deleteId+'" onclick="deleteByID(this.value)">delete</button><br>');		
 				
 				});				
 				
@@ -108,7 +108,7 @@ $( document ).ready(function() {
 				$('#getResultDiv ul').empty();
 				var deleteId = result._id;	
 				//$('#getResultDiv .list-group').append(result.fname + " " + result.lname + "<br>");		
-				  $('#getResultDiv .list-group').append(result.fname + " " + result.lname + '<button value="'+deleteId+'" onclick="deleteByID(this.value)">delete</button><br><button value="'+deleteId+'" onclick="UpdateByID(this.value)">Update</button>');		
+				  $('#getResultDiv').append(result.fname + " " + result.lname + '<button value="'+deleteId+'" onclick="deleteByID(this.value)">delete</button><br><button value="'+deleteId+'" onclick="UpdateByID(this.value)">Update</button>');		
 				
 				console.log("Success: ", result);
 				document.getElementById("firstname").value = result.fname;
